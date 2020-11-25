@@ -1,0 +1,370 @@
+<meta name="viewport" content="width=device-width, user-scalable=no" />
+<meta name="theme-color" content="#0043b0"/>
+<title>Concrete Mixer Ratio Calculator - App</title>
+<style type='text/css'>
+@font-face{
+    font-family: ban;
+    src: url(/new/app/Lal-Salu.ttf);
+}
+body{
+	font-family: arial;
+	background:#f0f0f0;
+	margin:0px;
+}
+
+.smallBtn{
+	border:4px solid white;
+	font-size:40px;
+	background-color: rgba(0,0,0,0.3);
+	color:#fff;
+	width:75px; height:75px;
+	font-weight:bold;
+	outline:none;
+	transition:0.1s;
+}
+.smallBtn:active{
+	background:#fff;
+	color:#000;
+}
+
+.largeBtn{
+	border:7px solid white;
+	font-size:large;
+	background-color: #0043b0;
+	color:#fff;
+	width:100%;
+	font-weight:bold;
+	outline:none;
+	transition:0.1s;
+	padding: 15px 0px 15px 0px;
+}
+.largeBtn:active{
+	background: #fff;
+	color: 0043b0;
+}
+
+.sada_sand_sec{
+	padding:0px;
+	background-size:100%;
+    background-repeat: no-repeat;
+    background-attachment: relative;
+    background-position: center;
+    background-image:url("sada_sand.png");
+}
+
+.lal_sand_sec{
+	padding:0px;
+	background-size:100%;
+    background-repeat: no-repeat;
+    background-attachment: relative;
+    background-position: center;
+    background-image:url("lal_sand.png");
+}
+
+.khoa_sec{
+	padding:0px;
+	background-size:100%;
+    background-repeat: no-repeat;
+    background-attachment: relative;
+    background-position: center;
+    background-image:url("khoa.png");
+}
+
+.cement_sec{
+	padding:0px;
+	background-size:100%;
+    background-repeat: no-repeat;
+    background-attachment: relative;
+    background-position: center;
+    background-image:url("cement.png");
+}
+
+.bg{
+    background-color: rgba(0,0,0,0.25);
+    margin:0px;
+}
+.status{
+	background: #fffbb5;
+	padding:10px 0px 10px 0px;
+	color:#000;
+	border-bottom:4px solid #0043b0;
+	width:100%;
+	font-family: ban;
+}
+.header{
+	background:#0043b0;
+	color:white;
+	padding:12px 0px 12px 12px;
+	text-shadow: 1px 1px 3px black;
+}
+.ratio{
+	background: #1f75ff;
+	padding: 10px 0px 10px 0px;
+	color:#fff;
+	font-family: ban;
+}
+.footer{
+	padding:30px 0px 20px 0px;
+	font-size:large;
+	color:#474747;
+}
+</style>
+
+
+
+
+<div class="header"><font size="5"><b>Concrete Mixer</b></font><br>Ratio Calculator</div>
+<center>
+<div class='ratio'>
+সিমেন্ট(<font id='c'></font>), খোয়া(<font id='k'></font>), সাদা বালু(<font id='s'></font>), লাল বালু(<font id='l'></font>)
+</div>
+	
+<div class="cement_sec"><div class="bg" style="background-color: rgba(0,0,0,0.35);">
+<table width="100%" border="1" cellspacing="0"><td><center>
+<button onclick="down_cement()" class="smallBtn">↓</button></center></td>
+<td id="cement_flag" width="40%"><center>
+<font size="5" color="#fff" style="text-shadow: 2px 2px 5px black;font-family: ban;"><b>সিমেন্ট</b></font><br>
+<font id="cement" size="7" color="#fff" style="font-weight:bold; text-shadow: 2px 2px 5px black;">০</font></center></td><td>
+<center><button onclick="up_cement()"  class="smallBtn">↑</button></center></td></table>
+</div></div>
+
+<div class="khoa_sec"><div class="bg" style="background-color: rgba(0,0,0,0.35);">
+<table width="100%" border="1" cellspacing="0"><td><center>
+<button onclick="down_khoa()" class="smallBtn">↓</button></center></td>
+<td id="khoa_flag" width="40%"><center>
+<font size="5" color="#fff" style="text-shadow: 2px 2px 5px black;font-family: ban;"><b> খোয়া </b></font><br>
+<font id="khoa" size="7" color="#fff" style="font-weight:bold; text-shadow: 2px 2px 5px black;">০</font></center></td><td>
+<center><button onclick="up_khoa()"  class="smallBtn">↑</button></center></td></table>
+</div></div>
+
+<div class="sada_sand_sec"><div class="bg">
+<table width="100%" border="1" cellspacing="0"><td><center>
+<button onclick="down_normal_sand()" class="smallBtn">↓</button></center></td>
+<td id="sada_sand_flag" width="40%"><center>
+<font size="5" color="#fff" style="text-shadow: 2px 2px 5px black;font-family: ban;"><b>সাদা বালু</b></font><br>
+<font id="sada_sand" size="7" color="#fff" style="font-weight:bold; text-shadow: 2px 2px 5px black;">০</font></center></td><td>
+<center><button onclick="up_normal_sand()"  class="smallBtn">↑</button></center></td></table>
+</div></div>
+
+<div class="lal_sand_sec"><div class="bg">
+<table width="100%" border="1" cellspacing="0"><td><center>
+<button onclick="down_lal_sand()" class="smallBtn">↓</button></center></td>
+<td id="lal_sand_flag" width="40%"><center>
+<font size="5" color="#fff" style="text-shadow: 2px 2px 5px black;font-family: ban;"><b>লাল বালু</b></font><br>
+<font id="lal_sand" size="7" color="#fff" style="font-weight:bold; text-shadow: 2px 2px 5px black;">০</font></center></td><td>
+<center><button onclick="up_lal_sand()"  class="smallBtn">↑</button></center></td></table>
+</div></div>
+
+<button class="largeBtn" onclick="clearRecord()">CLEAR</button>
+<br>
+<div class="status"><b><font color="darkgreen">Status</font></b><br>
+<font id="done" style="font-size:15px;"><font size='4'>নতুন শুরু হলো</font></font>
+</div>
+
+</center>
+
+
+
+<script type='text/javascript'>
+var bn = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯", "১০", "১১", "১২", "১৩", "১৪", "১৫", "১৬", "১৭", "১৮", "১৯", "২০", "২১"];
+
+var req_sada_sand=3, req_lal_sand=4, req_khoa=5, req_cement=1;
+var sada_sand=0, lal_sand=0, khoa=0, cement=0;
+
+/*
+req_cement=prompt("সিমেন্ট কয়টা?");
+req_khoa=prompt("খোয়া কয়টা?");
+req_sada_sand=prompt("সাদা বালু কয়টা?");
+req_lal_sand=prompt("লাল বালু কয়টা?");
+*/
+
+document.getElementById('c').innerHTML=bn[req_cement];
+document.getElementById('k').innerHTML=bn[req_khoa];
+document.getElementById('s').innerHTML=bn[req_sada_sand];
+document.getElementById('l').innerHTML=bn[req_lal_sand];
+
+
+
+function ok(){
+    if(sada_sand==req_sada_sand && lal_sand==req_lal_sand && khoa==req_khoa && cement==req_cement){
+    	document.getElementById('done').innerHTML="<font color='green' size='5'><b>✅ OK. সব দেওয়া শেষ ✅</b></font>";
+    }
+    else{
+    	var cem, kh, sb, lb;
+    
+        if(cement < req_cement){cem=bn[(req_cement - cement)]+" টি<b> সিমেন্ট </b>লাগবে";}
+        else if(cement > req_cement){cem="<font color='red'>"+bn[(cement - req_cement)]+" টি<b> সিমেন্ট </b>বেশি গেছে</font>";}
+        else{cem="✔️ <font color='green'><b>সিমেন্ট </b>শেষ</font>"};
+        
+        if(khoa < req_khoa){kh=bn[(req_khoa - khoa)]+" টি<b> খোয়া </b>লাগবে";}
+        else if(khoa > req_khoa){kh="<font color='red'>"+bn[(khoa - req_khoa)]+" টি<b> খোয়া </b>বেশি গেছে</font>";}
+        else{kh="✔️ <font color='green'><b>খোয়া </b>শেষ</font>"};
+        
+        if(sada_sand < req_sada_sand){sb=bn[(req_sada_sand - sada_sand)]+" টি<b> সাদা বালু </b>লাগবে";}
+        else if(sada_sand > req_sada_sand){sb="<font color='red'>"+bn[(sada_sand - req_sada_sand)]+" টি<b> সাদা বালু </b>বেশি গেছে</font>";}
+        else{sb="✔️ <font color='green'><b>সাদা বালু </b>শেষ</font>"};
+        
+        if(lal_sand < req_lal_sand){lb=bn[(req_lal_sand - lal_sand)]+" টি<b> লাল বালু </b>লাগবে";}
+        else if(lal_sand > req_lal_sand){lb="<font color='red'>"+bn[(lal_sand - req_lal_sand)]+" টি<b> লাল বালু </b>বেশি গেছে</font>";}
+        else{lb="✔️ <font color='green'><b>লাল বালু </b>শেষ</font>"};
+        
+        document.getElementById('done').innerHTML="<table border='0' width='100%' cellspacing='0' cellpadding='3'><tr align='center'><td width='50%'>"+cem+"</td><td>"+kh+"</td></tr><tr align='center'><td width='50%'>"+sb+"</td><td>"+lb+"</td></tr></table>";
+    }
+}
+
+function up_normal_sand(){
+	sada_sand++; if(sada_sand>20) sada_sand=20;
+    ok();
+	if(sada_sand==req_sada_sand){
+		document.getElementById('sada_sand_flag').style.background="green";
+	}
+	else if(sada_sand>req_sada_sand){
+		document.getElementById('sada_sand_flag').style.background="red";
+	}
+	else{
+		document.getElementById('sada_sand_flag').style.background="";
+	}
+	document.getElementById('sada_sand').innerHTML = bn[sada_sand];
+}
+
+function down_normal_sand(){
+	sada_sand--; if(sada_sand<0) sada_sand=0;
+    ok();
+	if(sada_sand==req_sada_sand){
+		document.getElementById('sada_sand_flag').style.background="green";
+	}
+	else if(sada_sand>req_sada_sand){
+		document.getElementById('sada_sand_flag').style.background="red";
+	}
+	else{
+		document.getElementById('sada_sand_flag').style.background="";
+	}
+	document.getElementById('sada_sand').innerHTML = bn[sada_sand];
+}
+
+function up_lal_sand(){
+	lal_sand++; if(lal_sand>20) lal_sand=20;
+    ok();
+	if(lal_sand==req_lal_sand){
+		document.getElementById('lal_sand_flag').style.background="green";
+	}
+	else if(lal_sand>req_lal_sand){
+		document.getElementById('lal_sand_flag').style.background="red";
+	}
+	else{
+		document.getElementById('lal_sand_flag').style.background="";
+	}
+	document.getElementById('lal_sand').innerHTML = bn[lal_sand];
+}
+
+function down_lal_sand(){
+	lal_sand--; if(lal_sand<0) lal_sand=0;
+    ok();
+	if(lal_sand==req_lal_sand){
+		document.getElementById('lal_sand_flag').style.background="green";
+	}
+	else if(lal_sand>req_lal_sand){
+		document.getElementById('lal_sand_flag').style.background="red";
+	}
+	else{
+		document.getElementById('lal_sand_flag').style.background="";
+	}
+	document.getElementById('lal_sand').innerHTML = bn[lal_sand];
+}
+
+function up_khoa(){
+	khoa++; if(khoa>20) khoa=20;
+    ok();
+	if(khoa==req_khoa){
+		document.getElementById('khoa_flag').style.background="green";
+	}
+	else if(khoa>req_khoa){
+		document.getElementById('khoa_flag').style.background="red";
+	}
+	else{
+		document.getElementById('khoa_flag').style.background="";
+	}
+	document.getElementById('khoa').innerHTML = bn[khoa];
+}
+
+function down_khoa(){
+	khoa--; if(khoa<0) khoa=0;
+    ok();
+	if(khoa==req_khoa){
+		document.getElementById('khoa_flag').style.background="green";
+	}
+	else if(khoa>req_khoa){
+		document.getElementById('khoa_flag').style.background="red";
+	}
+	else{
+		document.getElementById('khoa_flag').style.background="";
+	}
+	document.getElementById('khoa').innerHTML = bn[khoa];
+}
+
+function up_cement(){
+	cement++; if(cement>20) cement = 20;
+    ok();
+	if(cement==req_cement){
+		document.getElementById('cement_flag').style.background="green";
+	}
+	else if(cement>req_cement){
+		document.getElementById('cement_flag').style.background="red";
+	}
+	else{
+		document.getElementById('cement_flag').style.background="";
+	}
+	document.getElementById('cement').innerHTML = bn[cement];
+}
+
+function down_cement(){
+	cement--; if(cement<0) cement=0;
+	ok();
+	if(cement==req_cement){
+		document.getElementById('cement_flag').style.background="green";
+	}
+	else if(cement>req_cement){
+		document.getElementById('cement_flag').style.background="red";
+	}
+	else{
+		document.getElementById('cement_flag').style.background="";
+	}
+	document.getElementById('cement').innerHTML = bn[cement];
+}
+
+
+function save(){
+	
+}
+
+function clearRecord(){
+	save();
+	sada_sand=0; lal_sand=0; khoa=0; cement=0;
+	document.getElementById('cement').innerHTML = "০";
+	document.getElementById('khoa').innerHTML = "০";
+	document.getElementById('lal_sand').innerHTML = "০";
+	document.getElementById('sada_sand').innerHTML = "০";
+	document.getElementById('done').innerHTML = "<font size='4'>নতুন শুরু হলো</font>";
+	
+	document.getElementById('cement_flag').style.background="";
+	document.getElementById('khoa_flag').style.background="";
+	document.getElementById('lal_sand_flag').style.background="";
+	document.getElementById('sada_sand_flag').style.background="";
+}
+</script>
+
+
+<div class="footer">
+<center><b>© 2020 - Mir Anupam Hossain Akib</b><br>
+<font size="2">mirakib25@gmail.com</font></center>
+</div>
+
+
+
+
+
+
+
+
+
+	
